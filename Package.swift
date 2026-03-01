@@ -54,7 +54,16 @@ let package = Package(
             ],
             publicHeadersPath: ".",
             cSettings: [
-                .headerSearchPath(".")
+                .headerSearchPath("."),
+                .headerSearchPath("Categories"),
+                .headerSearchPath("Core"),
+                .headerSearchPath("CustomHTTPProtocol"),
+                .headerSearchPath("Logs"),
+                .headerSearchPath("Monitor"),
+                .headerSearchPath("Network"),
+                .headerSearchPath("Sandbox"),
+                .headerSearchPath("Swizzling"),
+                .headerSearchPath("fishhook")
             ]
         ),
         .target(
