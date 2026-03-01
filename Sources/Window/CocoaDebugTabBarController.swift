@@ -67,18 +67,23 @@ class CocoaDebugTabBarController: UITabBarController {
         _Sandboxer.shared.isShareable = true
         _Sandboxer.shared.isFileDeletable = true
         _Sandboxer.shared.isDirectoryDeletable = true
-        guard let sandbox = _Sandboxer.shared.homeDirectoryNavigationController() else {return}
-        sandbox.tabBarItem.title = "Sandbox"
-        sandbox.tabBarItem.image = UIImage.init(named: "_icon_file_type_sandbox", in: CocoaDebugBundle.resource, compatibleWith: nil)
+        let sandbox = _Sandboxer.shared.homeDirectoryNavigationController()
+        sandbox?.tabBarItem.title = "Sandbox"
+        sandbox?.tabBarItem.image = UIImage.init(named: "_icon_file_type_sandbox", in: CocoaDebugBundle.resource, compatibleWith: nil)
+        
+        var baseControllers: [UIViewController] = [network, logs, app]
+        if let sandbox = sandbox {
+            baseControllers.insert(sandbox, at: 2)
+        }
         
         //3.
         guard let additionalViewController = CocoaDebugSettings.shared.additionalViewController else {
-            self.viewControllers = [network, logs, sandbox, app]
+            self.viewControllers = baseControllers
             return
         }
         
         //4.Add additional controller
-        var temp = [network, logs, sandbox, app]
+        var temp = baseControllers
         
         let nav = UINavigationController.init(rootViewController: additionalViewController)
         nav.navigationBar.barTintColor = "#1f2124".hexColor
