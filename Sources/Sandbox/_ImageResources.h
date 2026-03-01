@@ -14,4 +14,6 @@
 
 + (UIImage * _Nullable)fileTypeImageNamed:(NSString * _Nonnull)imageName;
 
++ (NSBundle * _Nonnull)resourceBundle;
+
 @end

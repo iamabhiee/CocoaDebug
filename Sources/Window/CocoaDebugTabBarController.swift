@@ -69,7 +69,7 @@ class CocoaDebugTabBarController: UITabBarController {
         _Sandboxer.shared.isDirectoryDeletable = true
         guard let sandbox = _Sandboxer.shared.homeDirectoryNavigationController() else {return}
         sandbox.tabBarItem.title = "Sandbox"
-        sandbox.tabBarItem.image = UIImage.init(named: "_icon_file_type_sandbox", in: Bundle.init(for: CocoaDebug.self), compatibleWith: nil)
+        sandbox.tabBarItem.image = UIImage.init(named: "_icon_file_type_sandbox", in: CocoaDebugBundle.resource, compatibleWith: nil)
         
         //3.
         guard let additionalViewController = CocoaDebugSettings.shared.additionalViewController else {

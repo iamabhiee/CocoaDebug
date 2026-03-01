@@ -10,6 +10,38 @@
 
 @implementation _ImageResources
 
++ (NSBundle * _Nonnull)resourceBundle {
+    NSBundle *classBundle = [NSBundle bundleForClass:self.class];
+    NSString *bundleName = @"CocoaDebug_CocoaDebug";
+    
+    // SwiftPM resources are emitted in a generated module bundle.
+    NSURL *bundleURL = [classBundle URLForResource:bundleName withExtension:@"bundle"];
+    if (!bundleURL) {
+        bundleURL = [[NSBundle mainBundle] URLForResource:bundleName withExtension:@"bundle"];
+    }
+    if (!bundleURL) {
+        for (NSBundle *bundle in [NSBundle allBundles]) {
+            bundleURL = [bundle URLForResource:bundleName withExtension:@"bundle"];
+            if (bundleURL) { break; }
+        }
+    }
+    if (!bundleURL) {
+        for (NSBundle *bundle in [NSBundle allFrameworks]) {
+            bundleURL = [bundle URLForResource:bundleName withExtension:@"bundle"];
+            if (bundleURL) { break; }
+        }
+    }
+    
+    if (bundleURL) {
+        NSBundle *resourceBundle = [NSBundle bundleWithURL:bundleURL];
+        if (resourceBundle) {
+            return resourceBundle;
+        }
+    }
+    
+    return classBundle;
+}
+
 + (UIImage * _Nullable)imageNamed:(NSString * _Nonnull)imageName {
     return [self imageNamed:imageName fileType:@"png" inDirectory:nil];
 }
@@ -19,7 +51,7 @@
 }
 
 + (UIImage * _Nullable)imageNamed:(NSString * _Nonnull)imageName fileType:(NSString * _Nonnull)fileType inDirectory:(NSString * _Nullable)directory {
-    NSBundle *bundle = [NSBundle bundleForClass:self.class];
+    NSBundle *bundle = [self resourceBundle];
     
     NSString *x1ImagePath = [bundle pathForResource:[self imageName:imageName appendingScale:1] ofType:fileType inDirectory:directory];
     NSString *x2ImagePath = [bundle pathForResource:[self imageName:imageName appendingScale:2] ofType:fileType inDirectory:directory];
