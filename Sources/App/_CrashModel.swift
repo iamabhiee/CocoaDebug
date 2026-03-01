@@ -7,7 +7,9 @@
 //
 
 import UIKit
+#if canImport(CocoaDebugObjC)
 import CocoaDebugObjC
+#endif
 
 class _CrashModel: NSObject, NSCoding {
     

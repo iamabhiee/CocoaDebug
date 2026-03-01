@@ -15,7 +15,9 @@ enum EditType {
 
 import Foundation
 import UIKit
+#if canImport(CocoaDebugObjC)
 import CocoaDebugObjC
+#endif
 
 class JsonViewController: UIViewController {
     

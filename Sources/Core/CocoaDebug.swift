@@ -8,7 +8,9 @@
 
 import Foundation
 import UIKit
+#if canImport(CocoaDebugObjC)
 import CocoaDebugObjC
+#endif
 
 @objc public class CocoaDebug : NSObject {
     

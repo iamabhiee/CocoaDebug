@@ -8,7 +8,9 @@
 
 import Foundation
 import UIKit
+#if canImport(CocoaDebugObjC)
 import CocoaDebugObjC
+#endif
 
 struct NetworkDetailModel {
     var title: String?

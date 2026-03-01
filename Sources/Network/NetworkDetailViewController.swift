@@ -9,7 +9,9 @@
 import Foundation
 import UIKit
 import MessageUI
+#if canImport(CocoaDebugObjC)
 import CocoaDebugObjC
+#endif
 
 class NetworkDetailViewController: UITableViewController, MFMailComposeViewControllerDelegate {
     

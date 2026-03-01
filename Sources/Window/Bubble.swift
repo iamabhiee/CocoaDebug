@@ -8,7 +8,9 @@
 
 import UIKit
 import UIKit.UIGestureRecognizerSubclass
+#if canImport(CocoaDebugObjC)
 import CocoaDebugObjC
+#endif
 
 protocol BubbleDelegate: AnyObject {
     func didTapBubble()

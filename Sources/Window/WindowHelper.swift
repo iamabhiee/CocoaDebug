@@ -7,7 +7,9 @@
 //
 
 import UIKit
+#if canImport(CocoaDebugObjC)
 import CocoaDebugObjC
+#endif
 
 public class WindowHelper: NSObject {
     public static let shared = WindowHelper()

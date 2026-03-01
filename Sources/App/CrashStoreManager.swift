@@ -7,7 +7,9 @@
 //
 
 import Foundation
+#if canImport(CocoaDebugObjC)
 import CocoaDebugObjC
+#endif
 
 class CrashStoreManager {
     
