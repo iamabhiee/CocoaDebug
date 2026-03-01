@@ -8,6 +8,7 @@
 /*
 import Foundation
 import UIKit
+import CocoaDebugObjC
 
 public class FPSCounter: NSObject {
 

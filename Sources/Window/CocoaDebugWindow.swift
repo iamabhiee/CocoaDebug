@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CocoaDebugObjC
 
 protocol WindowDelegate: AnyObject {
     func isPointEvent(point: CGPoint) -> Bool

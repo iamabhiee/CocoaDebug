@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import MessageUI
+import CocoaDebugObjC
 
 class NetworkDetailViewController: UITableViewController, MFMailComposeViewControllerDelegate {
     

@@ -8,6 +8,7 @@
 
 import UIKit
 import Darwin
+import CocoaDebugObjC
 
 func exceptionHandler(exception: NSException) {
     if CrashLogger.shared.crashed {

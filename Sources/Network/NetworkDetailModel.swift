@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import UIKit
+import CocoaDebugObjC
 
 struct NetworkDetailModel {
     var title: String?

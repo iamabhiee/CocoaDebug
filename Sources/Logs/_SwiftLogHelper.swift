@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import UIKit
+import CocoaDebugObjC
 
 public class _SwiftLogHelper: NSObject {
     

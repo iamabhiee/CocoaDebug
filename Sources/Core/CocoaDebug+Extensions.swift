@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import UIKit
+import CocoaDebugObjC
 
 extension Dictionary {
     ///JSON/Form format conversion

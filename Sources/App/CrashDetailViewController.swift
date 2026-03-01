@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CocoaDebugObjC
 
 class CrashDetailViewController: UITableViewController {
     
