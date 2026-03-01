@@ -1,4 +1,0 @@
-target 'Example_Swift' do
-    use_frameworks!
-    pod 'CocoaDebug', :path=> '../../CocoaDebug'
-end
