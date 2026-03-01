@@ -64,7 +64,7 @@ extension CocoaDebugViewController: BubbleDelegate {
     
     func didTapBubble() {
         WindowHelper.shared.displayedList = true
-        let storyboard = UIStoryboard(name: "Manager", bundle: Bundle(for: CocoaDebug.self))
+        let storyboard = UIStoryboard(name: "Manager", bundle: CocoaDebugBundle.resource)
         guard let vc = storyboard.instantiateInitialViewController() else {return}
         vc.view.backgroundColor = .white
         vc.modalPresentationStyle = .fullScreen

@@ -34,7 +34,7 @@ class NetworkDetailViewController: UITableViewController, MFMailComposeViewContr
     var justCancelCallback:(() -> Void)?
     
     static func instanceFromStoryBoard() -> NetworkDetailViewController {
-        let storyboard = UIStoryboard(name: "Network", bundle: Bundle(for: CocoaDebug.self))
+        let storyboard = UIStoryboard(name: "Network", bundle: CocoaDebugBundle.resource)
         return storyboard.instantiateViewController(withIdentifier: "NetworkDetailViewController") as! NetworkDetailViewController
     }
     
@@ -329,7 +329,7 @@ class NetworkDetailViewController: UITableViewController, MFMailComposeViewContr
         }
         
         //Use a separate xib-cell file, must be registered, otherwise it will crash
-        let bundle = Bundle(for: type(of: self))
+        let bundle = CocoaDebugBundle.resource
         let nib = UINib(nibName: "NetworkCell", bundle: bundle)
         tableView.register(nib, forCellReuseIdentifier: "NetworkCell")
         

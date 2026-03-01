@@ -119,6 +119,7 @@ let package = Package(
                 "App/IgnoredURLsViewController.swift",
                 "App/_CrashModel.swift",
                 "Core/CocoaDebug+Extensions.swift",
+                "Core/CocoaDebugBundle.swift",
                 "Core/CocoaDebug.swift",
                 "Core/CocoaDebugSettings.swift",
                 "Logs/LogCell.swift",

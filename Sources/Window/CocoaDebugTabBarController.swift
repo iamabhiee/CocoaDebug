@@ -57,9 +57,9 @@ class CocoaDebugTabBarController: UITabBarController {
     func setChildControllers() {
         
         //1.
-        let logs = UIStoryboard(name: "Logs", bundle: Bundle(for: CocoaDebug.self)).instantiateViewController(withIdentifier: "Logs")
-        let network = UIStoryboard(name: "Network", bundle: Bundle(for: CocoaDebug.self)).instantiateViewController(withIdentifier: "Network")
-        let app = UIStoryboard(name: "App", bundle: Bundle(for: CocoaDebug.self)).instantiateViewController(withIdentifier: "App")
+        let logs = UIStoryboard(name: "Logs", bundle: CocoaDebugBundle.resource).instantiateViewController(withIdentifier: "Logs")
+        let network = UIStoryboard(name: "Network", bundle: CocoaDebugBundle.resource).instantiateViewController(withIdentifier: "Network")
+        let app = UIStoryboard(name: "App", bundle: CocoaDebugBundle.resource).instantiateViewController(withIdentifier: "App")
         
         //2.
         _Sandboxer.shared.isSystemFilesHidden = false
@@ -94,7 +94,7 @@ class CocoaDebugTabBarController: UITabBarController {
         let selector = #selector(CocoaDebugNavigationController.exit)
         
         
-        let image = UIImage(named: "_icon_file_type_close", in: Bundle(for: CocoaDebugNavigationController.self), compatibleWith: nil)
+        let image = UIImage(named: "_icon_file_type_close", in: CocoaDebugBundle.resource, compatibleWith: nil)
         let leftItem = UIBarButtonItem(image: image,
                                        style: .done, target: self, action: selector)
         leftItem.tintColor = Color.mainGreen
