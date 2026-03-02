@@ -45,6 +45,12 @@ fi
 cp -R "$SRC_FRAMEWORK" "$DEVICE_DIR/CocoaDebug.framework"
 cp -R "$SRC_FRAMEWORK" "$SIM_DIR/CocoaDebug.framework"
 
+# Remove packaging-only script and normalize non-binary executable permissions.
+for SLICE in "$DEVICE_DIR/CocoaDebug.framework" "$SIM_DIR/CocoaDebug.framework"; do
+  rm -f "$SLICE/copy_and_codesign.sh"
+  find "$SLICE" -type f -perm -111 ! -name CocoaDebug -exec chmod 0644 {} +
+done
+
 # Thin device/simulator binaries.
 lipo "$DEVICE_DIR/CocoaDebug.framework/CocoaDebug" \
   -thin arm64 \
